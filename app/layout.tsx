@@ -33,3 +33,6 @@ export default function RootLayout({
     </html>
   );
 }
+
+export const fetchCache = 'default-no-store';
+export const dynamic = 'force-dynamic';
