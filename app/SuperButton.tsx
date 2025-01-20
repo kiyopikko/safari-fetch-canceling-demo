@@ -18,6 +18,13 @@ export const SuperButton = () => {
     });
   };
 
+  const onWrapperTransition = () => {
+    startTransition(async () => {
+      const { url } = await createTrunsaction();
+      setRedirectUrl(url);
+    });
+  };
+
   useEffect(() => {
     if (redirectUrl) {
       window.location.assign(redirectUrl);
@@ -31,6 +38,12 @@ export const SuperButton = () => {
       </button>
       <button className="p-4 bg-slate-900 text-white" onClick={onTransition}>
         Transition example.com
+      </button>
+      <button
+        className="p-4 bg-slate-900 text-white"
+        onClick={onWrapperTransition}
+      >
+        Wrapper Transition example.com
       </button>
     </>
   );
