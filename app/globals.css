@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --foreground-rgb: 0, 0, 0;
+  --background-rgb: 255, 255, 255;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -15,8 +15,12 @@
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-rgb));
+  position: relative;
+  min-height: 100vh;
+  /* iOS用スタイル調整 */
+  -webkit-overflow-scrolling: touch;
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -24,4 +28,36 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+/* iOS Safariでの固定要素とキーボードの問題に対処 */
+.focused-input {
+  /* 自動スクロール修正を妨げる特定の設定 */
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  /* キーボードが表示されたときにビューポートの再計算を抑制 */
+  touch-action: none;
+}
+
+/* iOS Safariのキーボード表示時にカーソル位置をずらすためのハック */
+@supports (-webkit-touch-callout: none) {
+  input[type='number'] {
+    /* カーソル位置のずれを再現するための調整 */
+    -webkit-text-size-adjust: 100%;
+    /* iOSのカーソル位置計算に影響する要素 */
+    line-height: normal !important;
+    /* 自動修正を抑制 */
+    -webkit-user-select: text;
+  }
+}
+
+/* スティッキーヘッダーのスタイル補強 */
+header.sticky {
+  /* iOS Safariでのスクロール中の挙動調整 */
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  /* iOSキーボードでヘッダー表示を維持 */
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
