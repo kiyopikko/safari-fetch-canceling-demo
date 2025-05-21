@@ -13,8 +13,9 @@ export default async function Home() {
     >
       <StickyHeader />
 
+      {/* メインコンテンツ - overflow: autoを削除して、sticky要素が正しく機能するようにする */}
       <div
-        className="flex-1 overflow-auto pb-24"
+        className="flex-1 pb-24"
         style={{
           transform: 'translateZ(0)',
           perspective: '1000px',
