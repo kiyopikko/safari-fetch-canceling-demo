@@ -7,25 +7,12 @@ export default async function Home() {
   const res = await fetch('https://dog.ceo/api/breeds/image/random');
   const data = await res.json();
   return (
-    <div
-      className="min-h-screen flex flex-col"
-      style={{ willChange: 'transform' }}
-    >
+    <div className="min-h-screen flex flex-col">
       <StickyHeader />
 
       {/* メインコンテンツ - overflow: autoを削除して、sticky要素が正しく機能するようにする */}
-      <div
-        className="flex-1 pb-24"
-        style={{
-          transform: 'translateZ(0)',
-          perspective: '1000px',
-          WebkitOverflowScrolling: 'touch',
-        }}
-      >
-        <div
-          className="flex flex-col items-center gap-4 p-4"
-          style={{ transform: 'translateZ(0)' }}
-        >
+      <div className="flex-1 pb-24">
+        <div className="flex flex-col items-center gap-4 p-4">
           <h1 className="text-2xl font-bold mb-4">iOSのSafariテスト</h1>
           <p className="text-gray-600 mb-4">
             下にスクロールして入力フィールドをタップしてください。
@@ -38,9 +25,6 @@ export default async function Home() {
             <div
               key={i}
               className="w-full max-w-md p-4 my-2 bg-gray-100 rounded"
-              style={{
-                willChange: i % 3 === 0 ? 'transform' : 'auto',
-              }}
             >
               <h2 className="text-lg font-semibold">セクション {i + 1}</h2>
               <p>

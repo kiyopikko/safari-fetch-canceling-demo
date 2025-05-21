@@ -21,20 +21,12 @@ export const StickyInput = () => {
   return (
     <div
       className="sticky bottom-0 left-0 right-0 bg-white border-t border-gray-200 p-4 z-[1200]"
-      style={{
-        transform: 'translateZ(0)', // 問題を引き起こす可能性のある transform
-        willChange: 'transform', // Safari でカーソル残像を引き起こす
-        perspective: '1000px', // 3D変換の文脈を作成
-      }}
+      style={{}}
     >
       <style jsx>{noSpinnerStyle}</style>
       <div
         className="textInputContainer__25e16a0f w-full flex items-center bg-white rounded overflow-hidden relative"
-        style={{
-          cursor: 'text',
-          transform: 'translateZ(0)',
-          willChange: 'transform',
-        }}
+        style={{}}
       >
         <label className="textInputPrefixLabel__25e16a0f font-bold text-xl ml-4 mr-2 text-gray-400">
           ¥
