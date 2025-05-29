@@ -9,11 +9,6 @@ export const StickyHeader = () => {
           保存
         </button>
       </div>
-      <div className="h-10 flex items-center mt-2">
-        <span className="text-sm text-gray-500">
-          入力フィールドまでスクロールしてタップしてください
-        </span>
-      </div>
     </header>
   );
 };
